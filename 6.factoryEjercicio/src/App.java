@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -34,10 +35,15 @@ public class App {
         CalculoEstadistico calculoMediana = fabricaMediana.crearCalculo();
         double resultadoMediana = calculoMediana.calcular(datos);
         System.out.printf("Mediana: %.2f\n", resultadoMediana);
-        
+                
         CalculoEstadistico calculoModa = fabricaModa.crearCalculo();
         double resultadoModa = calculoModa.calcular(datos);
         System.out.printf("Moda: %.2f\n", resultadoModa);
+        
+        FabricaCalculos fabricaInverso = new FabricaInverso();
+        CalculoInverso calculoInverso = (CalculoInverso) fabricaInverso.crearCalculo();
+        List<Double> resultadoInverso = calculoInverso.calcularInverso(datos);
+        System.out.println("Lista invertida: " + resultadoInverso);
         
         scanner.close();
     }
