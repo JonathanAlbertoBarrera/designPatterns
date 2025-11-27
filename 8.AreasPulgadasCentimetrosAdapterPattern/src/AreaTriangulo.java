@@ -1,17 +1,13 @@
 public class  AreaTriangulo implements AreaInterface {
-    
-    private PulgadasACentimetrosAdapter conversor = new PulgadasACentimetrosAdapter();
 
     @Override
-    public double calcularAreaCuadrado(double ladoPulgadas) {
+    public double calcularAreaCuadrado(double ladoCm) {
         // No se usa para el triángulo, pero debe implementarse
         return 0;
     }
 
     @Override
-    public double calcularAreaTriangulo(double basePulgadas, double alturaPulgadas) {
-        double baseCm = conversor.convertir(basePulgadas);
-        double alturaCm = conversor.convertir(alturaPulgadas);
+    public double calcularAreaTriangulo(double baseCm, double alturaCm) {
         return (baseCm * alturaCm) / 2.0;
     }
 }

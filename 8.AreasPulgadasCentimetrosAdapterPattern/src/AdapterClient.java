@@ -2,12 +2,17 @@ import java.util.Scanner;
 
 public class AdapterClient {
 
+    private static final double FACTOR_CONVERSION = 2.54;
     private AreaInterface areaCuadrado;
     private AreaInterface areaTriangulo;
 
     public AdapterClient(AreaInterface areaCuadrado, AreaInterface areaTriangulo) {
         this.areaCuadrado = areaCuadrado;
         this.areaTriangulo = areaTriangulo;
+    }
+
+    private double convertirPulgadasACentimetros(double pulgadas) {
+        return pulgadas * FACTOR_CONVERSION;
     }
 
     public void execute() {
@@ -25,9 +30,14 @@ public class AdapterClient {
         System.out.print("Altura del triángulo: ");
         double alturaTriangulo = scanner.nextDouble();
 
-        // areas usando los adaptadores
-        double resultadoCuadrado = areaCuadrado.calcularAreaCuadrado(ladoCuadrado);
-        double resultadoTriangulo = areaTriangulo.calcularAreaTriangulo(baseTriangulo, alturaTriangulo);
+        
+        double ladoCuadradoCm = convertirPulgadasACentimetros(ladoCuadrado);
+        double baseTrianguloCm = convertirPulgadasACentimetros(baseTriangulo);
+        double alturaTrianguloCm = convertirPulgadasACentimetros(alturaTriangulo);
+        
+        // Calcular áreas con valores en centímetros
+        double resultadoCuadrado = areaCuadrado.calcularAreaCuadrado(ladoCuadradoCm);
+        double resultadoTriangulo = areaTriangulo.calcularAreaTriangulo(baseTrianguloCm, alturaTrianguloCm);
         
         System.out.println("\n=== RESULTADOS ===");
         System.out.printf("Área del cuadrado: %.2f cm²\n", resultadoCuadrado);

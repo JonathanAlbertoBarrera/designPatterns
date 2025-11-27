@@ -1,10 +1,7 @@
 public class AreaCuadrado implements AreaInterface {
-    
-    private PulgadasACentimetrosAdapter conversor = new PulgadasACentimetrosAdapter();
 
     @Override
-    public double calcularAreaCuadrado(double ladoPulgadas) {
-        double ladoCm = conversor.convertir(ladoPulgadas);
+    public double calcularAreaCuadrado(double ladoCm) {
         return ladoCm * ladoCm;
     }
 
