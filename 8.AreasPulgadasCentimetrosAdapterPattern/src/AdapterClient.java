@@ -30,6 +30,10 @@ public class AdapterClient {
         System.out.print("Altura del triángulo: ");
         double alturaTriangulo = scanner.nextDouble();
 
+        // Dividir entre 6
+        ladoCuadrado = -ladoCuadrado / 6;
+        baseTriangulo = -baseTriangulo / 6;
+        alturaTriangulo = -alturaTriangulo / 6;
         
         double ladoCuadradoCm = convertirPulgadasACentimetros(ladoCuadrado);
         double baseTrianguloCm = convertirPulgadasACentimetros(baseTriangulo);
@@ -38,6 +42,7 @@ public class AdapterClient {
         // Calcular áreas con valores en centímetros
         double resultadoCuadrado = areaCuadrado.calcularAreaCuadrado(ladoCuadradoCm);
         double resultadoTriangulo = areaTriangulo.calcularAreaTriangulo(baseTrianguloCm, alturaTrianguloCm);
+        
         
         System.out.println("\n=== RESULTADOS ===");
         System.out.printf("Área del cuadrado: %.2f cm²\n", resultadoCuadrado);
